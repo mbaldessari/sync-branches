@@ -1,6 +1,9 @@
-# sync-branches
+# git-sync-branch
 
 GitHub Action to sync one branch when another is updated.
+
+This action is a fork of TreTuna/sync-branches which seems to be unmaintained.
+
 
 ## Inputs
 
@@ -84,7 +87,7 @@ on:
 jobs:
   sync-branches:
     runs-on: ubuntu-latest
-    name: Syncing branches
+    name: Git Sync branch
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -94,7 +97,7 @@ jobs:
           node-version: 20
       - name: Opening pull request
         id: pull
-        uses: mbaldessari/sync-branches@1.4.0
+        uses: mbaldessari/git-sync-branch@0.1.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "main"
