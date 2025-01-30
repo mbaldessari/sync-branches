@@ -26,6 +26,21 @@ async function run() {
 
     const octokit = new github.getOctokit(githubToken);
 
+    const { data: branches } = await octokit.rest.repos.listBranches({
+      owner: owner,
+      repo: repo,
+    });
+
+    const branchNames = branches.map(branch => branch.name);
+    console.log(`✅ Available branches: ${branchNames.join(', ')}`);
+
+    if (!branchNames.includes(toBranch)) {
+      core.setFailed(`❌ Error: Branch "${toBranch}" does not exist in ${repo.owner}/${repo.repo}`);
+      return;
+    }
+
+    console.log(`✅ Branch "${toBranch}" exists. Proceeding with the action...`);
+
     const { data: currentPulls } = await octokit.rest.pulls.list({
       owner,
       repo,
