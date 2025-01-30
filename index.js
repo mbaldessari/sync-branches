@@ -1,7 +1,5 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
-const exec = require("@actions/exec");
-
 
 const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
 
@@ -27,6 +25,21 @@ async function run() {
     );
 
     const octokit = new github.getOctokit(githubToken);
+
+    const { data: branches } = await octokit.rest.repos.listBranches({
+      owner: repo.owner,
+      repo: repo.repo,
+    });
+
+    const branchNames = branches.map(branch => branch.name);
+    console.log(`✅ Available branches: ${branchNames.join(', ')}`);
+
+    if (!branchNames.includes(toBranch)) {
+      core.setFailed(`❌ Error: Branch "${toBranch}" does not exist in ${repo.owner}/${repo.repo}`);
+      return;
+    }
+
+    console.log(`✅ Branch "${toBranch}" exists. Proceeding with the action...`);
 
     const { data: currentPulls } = await octokit.rest.pulls.list({
       owner,
