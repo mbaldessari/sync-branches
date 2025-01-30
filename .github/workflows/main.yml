@@ -1,4 +1,5 @@
-name: Sync
+---
+name: Sync branch
 on:
   push:
     branches:
@@ -19,6 +20,6 @@ jobs:
         id: pull
         uses: ./
         with:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FROM_BRANCH: "main"
           TO_BRANCH: "develop"
