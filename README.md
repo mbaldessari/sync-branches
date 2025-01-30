@@ -97,7 +97,7 @@ jobs:
           node-version: 20
       - name: Opening pull request
         id: pull
-        uses: mbaldessari/git-sync-branch@0.1.0
+        uses: mbaldessari/git-sync-branch@0.2.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "main"
