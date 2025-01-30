@@ -99,7 +99,7 @@ jobs:
         id: pull
         uses: mbaldessari/git-sync-branch@0.2.0
         with:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FROM_BRANCH: "main"
           TO_BRANCH: "develop"
 ```
