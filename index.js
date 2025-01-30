@@ -61,13 +61,18 @@ async function run() {
         });
 
         if (reviewers.length > 0 || team_reviewers.length > 0) {
-          octokit.rest.pulls.requestReviewers({
-            owner,
-            repo,
-            pull_number: pullRequest.number,
-            reviewers,
-            team_reviewers,
-          });
+          try {
+            await octokit.rest.pulls.requestReviewers({
+              owner,
+              repo,
+              pull_number: pullRequest.number,
+              reviewers,
+              team_reviewers,
+            });
+          } catch (error) {
+            core.error(`Reviews may only be requested from collaborator of the ${repo} repository.`)
+            core.error('Update the reviewers to include only collaborators.')
+          }
         }
 
         if (labels.length > 0) {
