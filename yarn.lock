@@ -849,10 +849,10 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@zeit/ncc@^0.22.3":
-  version "0.22.3"
-  resolved "https://registry.npmjs.org/@zeit/ncc/-/ncc-0.22.3.tgz"
-  integrity sha512-jnCLpLXWuw/PAiJiVbLjA8WBC0IJQbFeUwF4I9M+23MvIxTxk5pD4Q8byQBSPmHQjz5aBoA7AKAElQxMpjrCLQ==
+"@vercel/ncc@^0.38.3":
+  version "0.38.3"
+  resolved "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.38.3.tgz"
+  integrity sha512-rnK6hJBS6mwc+Bkab+PGPs9OiS0i/3kdTO+CkI8V0/VrW3vmz7O2Pxjw/owOlmo6PKEIxRSeZKv/kuL9itnpYA==
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
