@@ -1,5 +1,7 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
+const exec = require("@actions/exec");
+
 
 const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
 
@@ -20,6 +22,10 @@ async function run() {
     const labels = JSON.parse(core.getInput("LABELS"));
     let isMerged = false;
 
+    const out = await exec.exec("npm --version");
+    console.log(
+      `NPMShould ${out}`
+    );
     console.log(
       `Should a pull request to ${toBranch} from ${fromBranch} be created?`
     );
