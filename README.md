@@ -44,7 +44,7 @@ Default: `false`
 
 JSON array of GitHub user `login`s that will be requested to review the PR.
 
-Example: `'["tretuna"]'`
+Example: `'["mbaldessari"]'`
 
 Default: `[]`
 ### `TEAM_REVIEWERS`
