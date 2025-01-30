@@ -22,10 +22,6 @@ async function run() {
     const labels = JSON.parse(core.getInput("LABELS"));
     let isMerged = false;
 
-    const out = await exec.exec("npm --version");
-    console.log(
-      `NPMShould ${out}`
-    );
     console.log(
       `Should a pull request to ${toBranch} from ${fromBranch} be created?`
     );
