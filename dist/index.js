@@ -31856,8 +31856,8 @@ async function run() {
     const octokit = new github.getOctokit(githubToken);
 
     const { data: branches } = await octokit.rest.repos.listBranches({
-      owner: repo.owner,
-      repo: repo.repo,
+      owner: owner,
+      repo: repo,
     });
 
     const branchNames = branches.map(branch => branch.name);
