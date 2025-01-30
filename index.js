@@ -99,7 +99,7 @@ async function run() {
           `Pull request (${pullRequest.number}) successfully created${isMerged ? ' and merged' : ' '}! You can view it here: ${pullRequest.url}`
         );
 
-        core.setOutput("PULL_REQUEST_URL", pullRequest.url.toString());
+        core.setOutput("PULL_REQUEST_URL", pullRequest.html_url.toString());
         core.setOutput("PULL_REQUEST_NUMBER", pullRequest.number.toString());
       } else {
         console.log(
@@ -109,10 +109,10 @@ async function run() {
     } else {
       console.log(
         `There is already a pull request (${currentPull.number}) to ${toBranch} from ${fromBranch}.`,
-        `You can view it here: ${currentPull.url}`
+        `You can view it here: ${currentPull.html_url}`
       );
 
-      core.setOutput("PULL_REQUEST_URL", currentPull.url.toString());
+      core.setOutput("PULL_REQUEST_URL", currentPull.html_url.toString());
       core.setOutput("PULL_REQUEST_NUMBER", currentPull.number.toString());
     }
   } catch (error) {
