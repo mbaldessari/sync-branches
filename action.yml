@@ -1,4 +1,4 @@
-name: "Sync branches"
+name: "Git Sync Branch"
 description: "GitHub Action to, upon successful merge, open a pull request to sync the updated branch back to one or more other branches."
 branding:
   icon: git-pull-request
