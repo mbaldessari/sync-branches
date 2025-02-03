@@ -2,7 +2,7 @@
 
 GitHub Action to sync one branch when another is updated.
 
-This action is a fork of TreTuna/sync-branches which seems to be unmaintained.
+This action is a fork of mbaldessari/git-sync-branch
 
 
 ## Inputs
@@ -47,7 +47,7 @@ Default: `false`
 
 JSON array of GitHub user `login`s that will be requested to review the PR.
 
-Example: `'["mbaldessari"]'`
+Example: `'["mikmanyaj"]'`
 
 Default: `[]`
 ### `TEAM_REVIEWERS`
@@ -97,9 +97,9 @@ jobs:
           node-version: 20
       - name: Opening pull request
         id: pull
-        uses: mbaldessari/git-sync-branch@v0.2.0
+        uses: mikmanyaj/git-sync-branch@master
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FROM_BRANCH: "main"
-          TO_BRANCH: "develop"
+          FROM_BRANCH: "documentation"
+          TO_BRANCH: "main"
 ```
